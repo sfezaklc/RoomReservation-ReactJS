@@ -1,20 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import { Grid, Button } from '@mui/material'
-import Calendar from '../MyCalendar';
-import { useEffect } from 'react';
+import Calendar from '../Components/MyCalendar';
 
-const One = () => {
-  const [reservedDays, setReservedDays] = useState([]);
+const Two = () => {
 
-  useEffect(() => {
-    const days = ['2022-06-17', '2022-06-18', '2022-06-19'];
-    setReservedDays(days)
-  }, [])
+  const [btn, setBtn] = useState(false)
 
   const CreateReservation = () => {
-
+    setBtn(true)
   }
+
   return (
     <>
       <Grid sx={{ marginTop: 5 }} xs={12}>
@@ -23,10 +19,10 @@ const One = () => {
         </Button>
       </Grid>
       <Grid sx={{ marginTop: 5 }} xs={12}>
-        <Calendar reservedDays={reservedDays}></Calendar>
+        <Calendar room={'roomTwo'}></Calendar>
       </Grid>
     </>
   )
 }
 
-export default One
+export default Two
